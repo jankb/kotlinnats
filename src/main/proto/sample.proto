@@ -6,7 +6,8 @@ import "google/protobuf/timestamp.proto";
 
 
 message Sample {
-  string id = 1;
-  string sampnt = 2;
-  bool negative = 3;
+  string MTid = 1;
+  string MTsampnt = 2;
+  bool MTnegative = 3;
+  string MTmessage = 4;
 }

@@ -19,12 +19,21 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom("com.google.protobuf:protobuf-bom:3.25.1")
+		mavenBom("io.grpc:grpc-bom:1.59.0")
+	}
+}
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+
+	implementation("com.google.protobuf:protobuf-java")
 
 	// https://mvnrepository.com/artifact/io.nats/jnats
 	implementation("io.nats:jnats:2.17.1")

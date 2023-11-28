@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.RestController
 class PublishMessageController {
     @GetMapping("/publish/{message}")
     fun publishMessage(@PathVariable message: String) {
+        val protoSampe = SampleOuterClass.Sample.newBuilder()
+            .setMTid("MTid")
+            .setMTsampnt("MTsampnt")
+            .setMTmessage(message)
+            .build()
+
         val nc = Nats.connect("nats://localhost:4222")
-        nc.publish("proveta.nats.test", message.toByteArray())
+        nc.publish("proveta.nats.test", protoSampe.toByteArray())
         nc.close()
     }
 }
