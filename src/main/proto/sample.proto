@@ -1,0 +1,12 @@
+syntax="proto3";
+package net.polvott.kotlinnats;
+
+option java_package = "net.polvott.kotlinnats";
+import "google/protobuf/timestamp.proto";
+
+
+message Sample {
+  string id = 1;
+  string sampnt = 2;
+  bool negative = 3;
+}
